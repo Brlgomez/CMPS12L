@@ -1,0 +1,1 @@
+The first operand is required and is the string to be used to search the files. The rest of the operands are filenames to be processed in sequence. If no file- names are specified, stdin is read. If a file is specified as a single minus (-) stdin is read at that point.

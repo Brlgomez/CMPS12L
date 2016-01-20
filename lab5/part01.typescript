@@ -1,0 +1,72 @@
+Script started on Sun 09 Feb 2014 04:49:23 PM PST
+[?1034hbash-1$ mk uninit.c
+CSOURCE=uninit.c EXECBIN=uninit
++ cid + uninit.c
++ checksource uninit.c
++ gcc -g -O0 -Wall -Wextra -std=gnu99 uninit.c -o uninit -lm
+uninit.c: In function ‘main’:
+uninit.c:6:15: warning: unused parameter ‘argc’ [-Wunused-parameter]
+ int main (int argc, char **argv) {
+               ^
+uninit.c:6:28: warning: unused parameter ‘argv’ [-Wunused-parameter]
+ int main (int argc, char **argv) {
+                            ^
+uninit.c:8:11: warning: ‘foo’ is used uninitialized in this function [-Wuninitialized]
+    printf ("%d\n", foo);
+           ^
+uninit.c:10:11: warning: ‘pointer’ is used uninitialized in this function [-Wuninitialized]
+    printf ("%d\n", *pointer);
+           ^
++ set +x
+============================================================
+bash-2$ valgrind uninit
+==10531== Memcheck, a memory error detector
+==10531== Copyright (C) 2002-2012, and GNU GPL'd, by Julian Seward et al.
+==10531== Using Valgrind-3.8.1 and LibVEX; rerun with -h for copyright info
+==10531== Command: uninit
+==10531== 
+==10531== Use of uninitialised value of size 8
+==10531==    at 0x3753643D5B: _itoa_word (in /lib64/libc-2.12.so)
+==10531==    by 0x3753646912: vfprintf (in /lib64/libc-2.12.so)
+==10531==    by 0x375364F449: printf (in /lib64/libc-2.12.so)
+==10531==    by 0x400542: main (uninit.c:8)
+==10531== 
+==10531== Conditional jump or move depends on uninitialised value(s)
+==10531==    at 0x3753643D65: _itoa_word (in /lib64/libc-2.12.so)
+==10531==    by 0x3753646912: vfprintf (in /lib64/libc-2.12.so)
+==10531==    by 0x375364F449: printf (in /lib64/libc-2.12.so)
+==10531==    by 0x400542: main (uninit.c:8)
+==10531== 
+==10531== Conditional jump or move depends on uninitialised value(s)
+==10531==    at 0x37536453A3: vfprintf (in /lib64/libc-2.12.so)
+==10531==    by 0x375364F449: printf (in /lib64/libc-2.12.so)
+==10531==    by 0x400542: main (uninit.c:8)
+==10531== 
+==10531== Conditional jump or move depends on uninitialised value(s)
+==10531==    at 0x37536453C1: vfprintf (in /lib64/libc-2.12.so)
+==10531==    by 0x375364F449: printf (in /lib64/libc-2.12.so)
+==10531==    by 0x400542: main (uninit.c:8)
+==10531== 
+0
+==10531== Use of uninitialised value of size 8
+==10531==    at 0x400547: main (uninit.c:10)
+==10531== 
+1
+==10531== 
+==10531== HEAP SUMMARY:
+==10531==     in use at exit: 0 bytes in 0 blocks
+==10531==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+==10531== 
+==10531== All heap blocks were freed -- no leaks are possible
+==10531== 
+==10531== For counts of detected and suppressed errors, rerun with: -v
+==10531== Use --track-origins=yes to see where uninitialised values come from
+==10531== ERROR SUMMARY: 5 errors from 5 contexts (suppressed: 6 from 6)
+bash-3$ echo $?
+0
+bash-4$ pstatus 139
+pstatus: 0x008B TERMINATED 11: Segmentation fault (core dumped)
+bash-5$ exit
+exit
+
+Script done on Sun 09 Feb 2014 04:51:06 PM PST

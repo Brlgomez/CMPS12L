@@ -1,0 +1,55 @@
+head	1.2;
+access;
+symbols;
+locks;
+comment	@# @;
+
+
+1.2
+date	2014.01.20.03.19.55;	author -;	state -;
+branches;
+next	1.1;
+
+1.1
+date	2014.01.20.03.18.51;	author -;	state -;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@-
+@
+text
+@// # $Id: exit255.java,v 1.1 2014-01-19 19:18:51-08 - - $
+//Brandon Gomez brlgomez
+import static java.lang.System.*;
+class exit255{
+    public static final int EXIT_FAILURE = 255;
+    public static final int EXIT_SUCCESS = 0;
+    public static int exit_status = EXIT_SUCCESS;
+    
+    public static void main (String[] args){
+        err.printf("%s%n" , "EXIT 255");
+        exit_status = EXIT_FAILURE;
+        exit (exit_status);
+    }
+}
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// # $Id$
+d14 1
+a14 1
+}@

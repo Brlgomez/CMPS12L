@@ -1,0 +1,26 @@
+# $Id$
+
+JAVASRC    = exit255.java
+SOURCES    = ${JAVASRC} Makefile
+MAINCLASS  = exit255
+CLASSES    = exit255.class
+JARFILE    = exit255
+JARCLASSES = ${CLASSES}
+
+all: ${JARFILE}
+
+${JARFILE}: ${CLASSES}
+	echo Main-class: ${MAINCLASS} >Manifest
+	jar cvfm ${JARFILE} Manifest ${JARCLASSES}
+	- rm -vf Manifest
+	chmod +x ${JARFILE}
+
+test: ${JARFILE}
+	( echo "%%%%%%%% ${JARFILE}" \
+	; ${JARFILE} 2>&1 \
+	; echo "%%%%%%%% Exit status = $$?" \
+	; echo "%%%%%%%% uname -a" ; uname -a | sed 's/#/\n#/' \
+	) >255.output
+	cat -nv 255.output
+
+

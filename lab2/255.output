@@ -1,0 +1,6 @@
+%%%%%%%% exit255
+EXIT 255
+%%%%%%%% Exit status = 255
+%%%%%%%% uname -a
+Linux unix2.lt.ucsc.edu 2.6.32-358.23.2.el6.x86_64 
+#1 SMP Wed Oct 16 18:37:12 UTC 2013 x86_64 x86_64 x86_64 GNU/Linux
