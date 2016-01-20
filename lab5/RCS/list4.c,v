@@ -6,7 +6,7 @@ comment	@ * @;
 
 
 1.1
-date	2014.02.10.01.51.08;	author -;	state -;
+date	2014.02.19.04.13.29;	author -;	state -;
 branches;
 next	;
 
@@ -20,7 +20,7 @@ log
 @-
 @
 text
-@// $Id: list3.c,v 1.1 2014-02-09 17:46:19-08 - - $
+@// $Id: list3.c,v 1.2 2014-02-18 20:06:20-08 - - $
 
 #include <assert.h>
 #include <stdio.h>

@@ -1,12 +1,17 @@
-head	1.1;
+head	1.2;
 access;
 symbols;
 locks;
 comment	@ * @;
 
 
+1.2
+date	2014.02.19.04.06.20;	author -;	state -;
+branches;
+next	1.1;
+
 1.1
-date	2014.02.10.01.46.19;	author -;	state -;
+date	2014.02.19.03.50.06;	author -;	state -;
 branches;
 next	;
 
@@ -15,12 +20,12 @@ desc
 @@
 
 
-1.1
+1.2
 log
 @-
 @
 text
-@// $Id: list2.c,v 1.6 2014-02-09 17:37:25-08 - - $
+@// $Id: list3.c,v 1.1 2014-02-18 19:50:06-08 - - $
 
 #include <assert.h>
 #include <stdio.h>
@@ -47,4 +52,18 @@ int main (int argc, char **argv) {
    }
    return 9;
 }
+@
+
+
+1.1
+log
+@-
+@
+text
+@d1 1
+a1 1
+// $Id: list2.c,v 1.1 2014-02-18 19:17:45-08 - - $
+d15 1
+a15 1
+   for (int argi = 0; argi < 5; ++argi) {
 @

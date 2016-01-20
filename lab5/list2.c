@@ -1,4 +1,4 @@
-// $Id: list2.c,v 1.6 2014-02-09 17:37:25-08 - - $
+// $Id: list2.c,v 1.1 2014-02-18 19:17:45-08 - - $
 
 #include <assert.h>
 #include <stdio.h>
@@ -12,7 +12,7 @@ struct node {
 
 int main (int argc, char **argv) {
    node *head;
-   for (int argi = 0; argi < argc; ++argi) {
+   for (int argi = 0; argi < 5; ++argi) {
       node *node = malloc (sizeof (struct node));
       assert (node != NULL);
       node->word = argv[argi];

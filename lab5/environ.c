@@ -1,12 +1,13 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-int main(int argc, char **argv){
-  extern char **environ;
-  for(int i = 0; i < argc; i++){
-    if(environ[argc] == NULL){
+extern char **environ;
+int main(){
+  for(int argi = 1; ; argi++){
+    if(environ[argi] == NULL){
       return 0;
     }
-    printf("%s", environ[agrc]);
+    printf("%s", environ[argi]);
   }
-  return 1;
+  return 0;
 }

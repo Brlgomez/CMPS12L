@@ -1,11 +1,12 @@
-// $Id: uninit.c,v 1.1 2014-02-09 16:49:34-08 - - $
+// $Id: uninit.c,v 1.1 2014-02-18 18:43:28-08 - - $
 
 #include <stdio.h>
 #include <stdlib.h>
 
 int main (int argc, char **argv) {
-   int foo;
-   printf ("%d\n", foo);
    int *pointer;
-   printf ("%d\n", *pointer);
+   printf ("pointer=%p\n", pointer);
+   printf ("*pointer=%d\n", *pointer);
+   int foo;
+   printf ("foo=%d\n", foo);
 }
